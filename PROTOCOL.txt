@@ -1,0 +1,30 @@
+Protokol komunikacji:
+Rzadania spelniane sa dzieki kodom wysylanym w strukturze msg.
+Kody:
+100- logowanie
+111- wylogowanie
+222- wypisanie listy zalogowanych uzytkownikow
+333- wypisanie listy uzytkownikow zapisanych do danego tematu
+444- wypisanie listy grup
+555- zapis do konkretnej grupy
+666- wypisane sie z konkretnej grupy
+777- wyslanie wiadomosci do grupy
+880- sprawdznie, czy podany uzytkownik, do ktorego chcemy wysalc wiadomosc, istnieje
+888- wyslanie wiadomosci do podanego uzytkownika
+999- sprawdznie skrzynki odbiorczej
+Uzywam jednej struktury. Nie jest to rozwiazanie eleganckie, ale toporne i proste. Laczy zatem w sobie wazne dla mnie zalety.
+Opisanie konkretnych pol:
+char log[1024]- login (uzywaja: msg, USERS)
+char pass[1024]- haslo (uzywaja: msg, USERS)
+char GN[1024]- nazwa grupy (uzywa: GROUPS)
+char lu[1024]- lista zalogowanych obenie uzytkownikow (uzywa: msg)
+char lg[1024]- sluzy do przesylu roznych list. (uzywa: msg)
+int sg[3]- sprawdza, czy dany uzytkownik subskrybuje konkretna grupe (0- nie, 1- tak). (uzywaja: msg, USERS)
+int pid- pid klienta (uzywaja: msg, USERS)
+char message[10240]- msg: sluzy do odczytu wiadomosci na serwerze, w skrzynce odbiorczej. USERS: zapisuje sie do niej wiomosci w skrzynkach odbiorczych. GROUPS: zapisuje wiadomosci napisane na grupie.
+char buf[1024]- bufor znakow
+char send_to[1024]- podczas wysylania wiadomosci do innego uzytkownika, jest przesylany przez klienta jako nazwa odbiorcy (uzywa: msg)
+int logged- sprawdza czy dany uzytkownik zalogowany (0- nie, 1- tak). (uzywaja: msg, USERS)
+int order- kod rozkazu, rozpisane wyzej (uzywa: msg)
+int nr_of_group- odczt, w przypadku checi zapisu do grupy. Jej numer. (uzywa: msg)
+int exist- sprawdza, czy podany przez klineta uzytownik istnieje. Sytuacja przy wysywaniu wiadomosci do innego uzytkownika. (uzywa: msg)
