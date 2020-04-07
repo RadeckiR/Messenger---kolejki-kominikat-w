@@ -11,3 +11,5 @@ serwer1.c zawiera struktury i funkcje obslugujace klienta, takie jak logowanie()
 w nieskoniczonej petli while(1) czeka na komunikaty od klienta.
 
 klient.c zawiera struktury, funkcje login() i odwolania do poszczegolnych opcji za pomoca switch.
+
+Więcej informacji i opis poszczególnych funkcji znajduje się w pliku PROTOCOL.TXT
